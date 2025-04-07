@@ -7,4 +7,11 @@ class Letter:
         self.char = letter
         self.side = side
 
-sides = [[],[],[],[]]
+sides = [['e','s','i'],['j','a','u'],['r','x','o'],['v','n','m']]
+
+with open('words.txt', 'r') as f:
+    words = {word[:-1] for word in f.readlines()}
+
+
+found = {}
+
