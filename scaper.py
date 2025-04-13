@@ -78,8 +78,9 @@ sides, letters = get_sides_and_letters(driver)
 
 words = word_tools.get_valid_words(letters, sides)
 print(f'{words=}')
+chains = word_tools.get_chains(words, 2)
 
-
+print('chains----',chains)
 """
 actions.send_keys("fact").perform()
 actions.send_keys(Keys.ENTER).perform()

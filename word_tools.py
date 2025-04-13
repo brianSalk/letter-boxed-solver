@@ -25,3 +25,19 @@ def get_valid_words(letters, sides):
         if is_valid:
             res.append(word)
     return res
+
+
+def get_chains(words, depth):
+    chains = [[word] for word in words]
+    count = 1
+    while count <= depth:
+        new_chains = []
+        for chain in chains:
+            for word in words:
+                if chain[-1][-1] == word[0]:
+                    new_chains.append(chain + [word])
+        chains.extend(new_chains)
+        count += 1
+    return chains
+
+
