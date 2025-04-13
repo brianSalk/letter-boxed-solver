@@ -1,4 +1,6 @@
 import re
+from collections import defaultdict
+from random import shuffle
 
 def get_valid_words(letters, sides):
     pattern = '^[' + "".join(letters) + ']{3,}$'
@@ -41,3 +43,28 @@ def get_chains(words, depth):
     return chains
 
 
+def get_chains2(words, depth):
+    shuffle(words)
+    chains = [[word] for word in words]
+    count = 1
+    first_letter = defaultdict(list)
+    last_letter = defaultdict(list)
+    for word in words:
+        first_letter[word[0]].append(word)
+        last_letter[word[-1]].append(word)
+    while count <= depth:
+        new_chains = []
+        for chain in chains:
+            for word in first_letter[chain[-1][-1]]:
+                new_chains.append(chain + [word])
+        chains.extend(new_chains)
+        count += 1
+    valid_chains = []
+    for chain in chains:
+        ls = set()
+        for word in chain:
+            ls.update([c for c in word]) 
+            if len(ls) == 12:
+                valid_chains.append(chain)
+
+    return valid_chains

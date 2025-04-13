@@ -27,6 +27,7 @@ element = driver.find_element(By.CLASS_NAME, "lb-square-container")
 driver.execute_script("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", element)
 sleep(2)
 
+actions = ActionChains(driver)
 def get_sides_and_letters(driver):
     actions = ActionChains(driver)
     letters = list('qwertyuiopasdfghjklzxcvbnm')
@@ -77,8 +78,33 @@ def get_sides_and_letters(driver):
 sides, letters = get_sides_and_letters(driver)
 
 words = word_tools.get_valid_words(letters, sides)
-print(f'{words=}')
-chains = word_tools.get_chains(words, 2)
+chains = word_tools.get_chains2(words, 2)
+chains = chains[:5]
+print(f'{chains=}')
+actions.send_keys(Keys.BACKSPACE).perform()
+actions.send_keys(Keys.BACKSPACE).perform()
+for chain in chains:
+    print('next chain:')
+    for word in chain:
+        for char in word:
+            actions.send_keys(char).perform()
+            print(char,end='')
+        print(' ', end='')
+        sleep(1)
+        actions.send_keys(Keys.ENTER).perform()
+        n = len(word)
+        sleep(n)
+        try:
+            driver.find_element(By.CLASS_NAME, "modal-congrats-body")
+            input("solved! press any key to exit")
+            driver.quit()
+        except Exception:
+            ...
+    sleep(2)
+    for _ in range(50):
+        actions.send_keys(Keys.BACKSPACE).perform
+        
+
 
 print('chains----',chains)
 """
