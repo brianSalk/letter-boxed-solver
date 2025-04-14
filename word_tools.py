@@ -3,7 +3,7 @@ from collections import defaultdict
 from random import shuffle
 
 def get_valid_words(letters, sides):
-    pattern = '^[' + "".join(letters) + ']{3,}$'
+    pattern = '^[' + "".join(letters) + ']{5,}$'
     print(f'{pattern=}')
     ans = []
     with open('words.txt', 'r') as f:
@@ -48,10 +48,10 @@ def get_chains2(words, depth):
     chains = [[word] for word in words]
     count = 1
     first_letter = defaultdict(list)
-    last_letter = defaultdict(list)
+    # create dict of last_letter
     for word in words:
         first_letter[word[0]].append(word)
-        last_letter[word[-1]].append(word)
+    # create all chains
     while count <= depth:
         new_chains = []
         for chain in chains:
