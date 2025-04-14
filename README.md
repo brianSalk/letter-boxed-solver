@@ -1,6 +1,6 @@
 # Letter Boxed Solver
 This program uses Selenium to solve todays Letter Boxed by New York Times.  
-In order to solve the daily Letter Boxed, the following actions must take place:
+I did the following to solve solve Letter Boxed:
 * Use the Selenium web driver to open the Letter Boxed page
 * Figure out which letters there are and what sides they are on
 * Read through all dictionary words that can be created on the Letter Boxed board
