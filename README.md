@@ -14,7 +14,7 @@ This is a bit more challenging than you probably think.  Becuase the main board 
 Instead, I had to have selenium press each letter key, and then scrape the text-input to see if the letter appeared on the text.  If the letter appears in the text-input, that means it is on the board.   
 After getting all 12 of the letters, I find which side each letter is on by entering two of the letters in a row.  If both letters appear in the text box, then that means there are on different sides.  If only the first letter appears, the letters are on the same side.  I build a map of the board using this technique.  
 ## Read through all dictionary words that can be created on the Letter Boxed board
-First I filtered the words in my dictionary to only contain words that consist of the 12 letters on our board, then I created a `dict` that maps each letter to a side.  If any word has two letters on the same side, it is discarded.
+First I filtered the words in my dictionary to only contain words that consist of the 12 letters on our board, then I created a `dict` that maps each letter to a side.  If any word has two letters in a row on the same side, it is discarded.
 ## Create chains of these words
 All of the remaining words can be created with the Letter Boxed board.  
 I create a `dict` that maps each letter to a list of all words that begin with that letter.  
