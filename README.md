@@ -22,4 +22,4 @@ I use this `dict` find all the words that start with the same letter as the last
 Each chain is started using one of the remaining words.  Due to the innefficient nature of this algorithm, I can only create chains of three or fewer words.  This however, is not usually a problem because most Letter Boxed's can be solved using just two words.  
 I then remove all chains that do not contian each letter at least once.  
 ## Attempt all chains that contian every letter until the board is solved.
-Because I might have some words in my dictionary that do not exist in Letter Boxed's dictionary, I attempt to solve the board with each chain by iterating over each chain.
+Because I might have some words in my dictionary that do not exist in Letter Boxed's dictionary, I iterate over each chain until the board is solved.  
