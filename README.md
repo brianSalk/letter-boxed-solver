@@ -4,7 +4,7 @@ I did the following to solve solve Letter Boxed:
 * Use the Selenium web driver to open the Letter Boxed page
 * Figure out which letters there are and what sides they are on
 * Read through all dictionary words that can be created on the Letter Boxed board
-* Create chains of these words
+* Create chains of these words, where the previous word ends with the same letter that the next word starts with.   
 * Attempt all chains that contian every letter until the board is solved.
 
 ## Use the Selenium web driver to open the Letter Boxed page
