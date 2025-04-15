@@ -78,8 +78,11 @@ def get_sides_and_letters(driver):
 sides, letters = get_sides_and_letters(driver)
 
 words = word_tools.get_valid_words(letters, sides)
-chains = word_tools.get_chains2(words, 2)
-chains = chains[:5]
+chains_dict = word_tools.get_chains2(words, 2)
+chains = []
+for cs in chains_dict.values():
+    for c in cs:
+        chains.append(c)
 print(f'{chains=}')
 actions.send_keys(Keys.BACKSPACE).perform()
 actions.send_keys(Keys.BACKSPACE).perform()
