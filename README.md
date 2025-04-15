@@ -9,7 +9,7 @@ I did the following to solve solve Letter Boxed:
 
 ## How to use
 Clone this repo to your computer.  
-make sure you have Selenium version 4.1 or higher installed.  From your terminal, run `python main.py`  
+make sure you have Selenium version 4.1 or higher installed.  From your terminal, run `python scraper.py`  
 This will open up a browser on your computer and solve todays letter boxed.  
 ## Use the Selenium web driver to open the Letter Boxed page
 This step simply involves importing selenium, instantiating a webdriver and opening the the url for the daily Letter Boxed page.  
