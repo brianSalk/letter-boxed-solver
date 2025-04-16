@@ -73,48 +73,39 @@ def get_sides_and_letters(driver):
     four_sides = set()
     for side in sides:
         four_sides.add(frozenset(side))
+    actions.send_keys(Keys.BACKSPACE).perform()
+    actions.send_keys(Keys.BACKSPACE).perform()
     return four_sides, list(letters_set)
 
-sides, letters = get_sides_and_letters(driver)
 
-words = word_tools.get_valid_words(letters, sides)
-chains_dict = word_tools.get_chains2(words, 2)
-chains = []
-for cs in chains_dict.values():
-    for c in cs:
-        chains.append(c)
-print(f'{chains=}')
-actions.send_keys(Keys.BACKSPACE).perform()
-actions.send_keys(Keys.BACKSPACE).perform()
-for chain in chains:
-    print('next chain:')
-    for word in chain:
-        for char in word:
-            actions.send_keys(char).perform()
-            print(char,end='')
-        print(' ', end='')
-        sleep(1)
-        actions.send_keys(Keys.ENTER).perform()
-        n = len(word)
-        sleep(n)
-        try:
-            driver.find_element(By.CLASS_NAME, "modal-congrats-body")
-            input("solved! press any key to exit")
-            driver.quit()
-        except Exception:
-            ...
-    sleep(2)
-    for _ in range(50):
-        actions.send_keys(Keys.BACKSPACE).perform
-        
+if __name__ == "__main__":
+    sides, letters = get_sides_and_letters(driver)
 
-
-print('chains----',chains)
-"""
-actions.send_keys("fact").perform()
-actions.send_keys(Keys.ENTER).perform()
-"""
-
-
-
-sleep(5000000)
+    words = word_tools.get_valid_words(letters, sides)
+    chains_dict = word_tools.get_chains2(words, 2)
+    chains = []
+    for cs in chains_dict.values():
+        for c in cs:
+            chains.append(c)
+    chains.sort(key=lambda x: len(x))
+    print(f'{chains=}')
+    for chain in chains:
+        print('next chain:')
+        for word in chain:
+            for char in word:
+                actions.send_keys(char).perform()
+                print(char,end='')
+            print(' ', end='')
+            sleep(1)
+            actions.send_keys(Keys.ENTER).perform()
+            n = len(word)
+            sleep(n)
+            try:
+                driver.find_element(By.CLASS_NAME, "modal-congrats-body")
+                input("solved! press any key to exit")
+                driver.quit()
+            except Exception:
+                ...
+        sleep(2)
+        for _ in range(50):
+            actions.send_keys(Keys.BACKSPACE).perform
