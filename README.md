@@ -9,7 +9,8 @@ I did the following to solve solve Letter Boxed:
 
 ## How to use
 Clone this repo to your computer.  
-make sure you have Selenium version 4.1 or higher installed.  From your terminal, run `python scraper.py`  
+make sure you have Selenium version 4.1 or higher installed.  If not, run `pip install selenium` for Linux or `pip3 install selenium` for Windows
+From your terminal, run `python scraper.py`  
 This will open up a browser on your computer and solve todays letter boxed.  
 You may need to install the chromium [web-driver](https://developer.chrome.com/docs/chromedriver/get-started) in order for this to work.  
 ## Use the Selenium web driver to open the Letter Boxed page
