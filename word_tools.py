@@ -70,6 +70,17 @@ def get_chains2(words, depth):
                 break
 
     return valid_chains
+
+def get_best_words(words):
+    m = 0
+    best_words = []
+    for word in words:
+        if len(set(word)) > m:
+            m = len(set(word))
+            best_words = [word]
+        elif len(set(word)) == m:
+            best_words.append(word)
+    return best_words
     
 if __name__ == "__main__":
     sides = [
