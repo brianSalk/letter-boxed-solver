@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     words = word_tools.get_valid_words(letters, sides)
     print("best words:", word_tools.get_best_words(words))
-    chains_dict = word_tools.get_chains2(words, 2)
+    chains_dict = word_tools.get_chains(words, 2)
     chains = []
     for cs in chains_dict.values():
         for c in cs:

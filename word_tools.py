@@ -31,20 +31,6 @@ def get_valid_words(letters, sides):
 
 
 def get_chains(words, depth):
-    chains = [[word] for word in words]
-    count = 1
-    while count <= depth:
-        new_chains = []
-        for chain in chains:
-            for word in words:
-                if chain[-1][-1] == word[0]:
-                    new_chains.append(chain + [word])
-        chains.extend(new_chains)
-        count += 1
-    return chains
-
-
-def get_chains2(words, depth):
     shuffle(words)
     chains = [[word] for word in words]
     count = 1
@@ -92,5 +78,5 @@ if __name__ == "__main__":
             letters.add(letter)
     words = get_valid_words(letters, sides)
     print('got words')
-    chains = get_chains2(words, 2)
+    chains = get_chains(words, 2)
     print(chains[2])
